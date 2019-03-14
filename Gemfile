@@ -24,7 +24,7 @@ gem "sass-rails", "~> 5.0"
 gem "sidekiq", ">= 4.2.0"
 gem "turbolinks", "~> 5"
 gem 'devise'
-
+gem 'google_search_results'
 
 group :production, :staging do
   gem "postmark-rails"
@@ -52,6 +52,7 @@ group :development do
   gem "terminal-notifier", require: false
   gem "terminal-notifier-guard", require: false
   gem "xray-rails", ">= 0.1.18"
+  gem "pry"
 end
 
 group :test do
