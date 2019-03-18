@@ -1,0 +1,4 @@
+class CsvValidator < CsvProcessor
+
+
+end

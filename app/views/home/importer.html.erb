@@ -1,21 +1,22 @@
 <div class="frame">
   <div class="center">
     <div class="bar"></div>
+<%= form_for :data,url: import_csv_path, html: {multipart: true,id: "csv"} do %>
+
     <div class="title">Drop file to upload</div>
     <div class="dropzone">
       <div class="content">
         <img src="http://100dayscss.com/codepen/upload.svg" class="upload">
         <span class="filename"></span>
-        <input type="file" class="input">
+              <%= file_field_tag "csv_file" %>
       </div>
     </div>
     <img src="http://100dayscss.com/codepen/syncing.svg" class="syncing">
     <img src="http://100dayscss.com/codepen/checkmark.svg" class="done">
     <div class="upload-btn">Upload file</div>
+    <% end %>
   </div>
 </div>
-
-
 <style type="text/css">
   @import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
 
@@ -230,6 +231,7 @@ $button.bind('click', function() {
 
 $("input:file").change(function (){
   fileName = $(this)[0].files[0].name;
+  // debugger
   $('.filename').html(fileName);
   $('.dropzone .upload').hide();
 });
@@ -242,11 +244,31 @@ function startUpload() {
     $syncing.addClass('active');
     $done.addClass('active');
     $bar.addClass('active');
-    timeoutID = window.setTimeout(showDone, 3200);
+    send_data();
+    // timeoutID = window.setTimeout(showDone, 3200);
   }
 }
 
 function showDone() {
   $button.html('Done');
+}
+
+function send_data() {
+  // debugger
+  var form = document.querySelector('form#csv');
+  form.submit();
+    // var formData = new FormData(form);
+   //  debugger
+   //  $.ajax({
+   //    url: '/import_csv',
+   //    type: 'POST',
+   //    data: formData,
+   //    contentType: false,
+   //    processData: false,
+
+   //  }).done(function() {
+   //    showDone()
+   //    // $( this ).addClass( "done" );
+   // });
 }
 </script>

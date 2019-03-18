@@ -1,7 +1,7 @@
 require_relative "boot"
 
 require "rails/all"
-
+require "csv"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -17,6 +17,7 @@ module GoogleSearchApp
 
     # Use sidekiq to process Active Jobs (e.g. ActionMailer's deliver_later)
     config.active_job.queue_adapter = :sidekiq
+    config.autoload_paths += %W(#{config.root}/lib)
 
     # Ensure non-standard paths are eager-loaded in production
     # (these paths are also autoloaded in development mode)

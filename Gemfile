@@ -25,6 +25,7 @@ gem "sidekiq", ">= 4.2.0"
 gem "turbolinks", "~> 5"
 gem 'devise'
 gem 'google_search_results'
+gem 'kimurai'
 
 group :production, :staging do
   gem "postmark-rails"
